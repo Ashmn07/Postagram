@@ -73,7 +73,7 @@ const Navbar = () => {
             />
              <ul className="collection">
                {userDetails.map(item=>{
-                 return <NavLink key={item?item._id:"Loading."} to={item._id !== state._id ? "/profile/"+item._id:'/profile'} onClick={()=>{
+                 return <NavLink to={item._id !== state._id ? "/profile/"+item._id:'/profile'} onClick={()=>{
                    M.Modal.getInstance(searchModal.current).close()
                    setSearch('')
                  }}><li className="collection-item">{item.email}</li></NavLink> 
