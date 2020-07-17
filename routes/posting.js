@@ -8,6 +8,7 @@ router.get('/allposts',requiredLogin,(req,res)=>{
     Post.find()
     .populate("postedBy","_id name pic")
     .populate("comments.postedBy","_id name pic")
+    .sort("-createdAt")
     .then((post)=>{
         res.statusCode=200;
         res.json({post})
@@ -19,6 +20,7 @@ router.get('/myfolposts',requiredLogin,(req,res)=>{
     Post.find({postedBy:{$in:req.user.following}})
     .populate("postedBy","_id name")
     .populate("comments.postedBy","_id name")
+    .sort("-createdAt")
     .then((post)=>{
         res.statusCode=200;
         res.json({post})

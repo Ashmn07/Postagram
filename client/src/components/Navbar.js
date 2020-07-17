@@ -1,17 +1,25 @@
-import React,{useContext} from 'react';
+import React,{useContext,useRef,useEffect,useState} from 'react';
 import {NavLink,useHistory} from 'react-router-dom';
 import {UserContext} from '../App';
+import M from 'materialize-css' 
 
 const Navbar = () => {
+    const searchModal = useRef(null)
     const {state,dispatch} = useContext(UserContext)
+    const [search,setSearch] = useState("")
+    const[userDetails,setUserDetails]=useState([])
     const history = useHistory()
+    useEffect(()=>{
+        M.Modal.init(searchModal.current)
+    },[])
     const renderList = () => {
         if(state){
             return [
-                <li><NavLink to="/profile">Profile</NavLink></li>,
-                <li><NavLink to="/create">Create Post</NavLink></li>,
-                <li><NavLink to="/myfolpost">My Following Posts</NavLink></li>,
-                <li>
+                <li key="1"><i data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>search</i></li>,
+                <li key="2"><NavLink to="/profile">Profile</NavLink></li>,
+                <li key="3"><NavLink to="/create">Create Post</NavLink></li>,
+                <li key="4"><NavLink to="/myfolpost">My Following Posts</NavLink></li>,
+                <li key="5">
                     <button className="btn #c62828 red darken-3"
                         onClick={()=>{
                             localStorage.clear()
@@ -25,11 +33,28 @@ const Navbar = () => {
         }
         else{
             return[
-                <li><NavLink to="/login">Login</NavLink></li>,
-                <li><NavLink to="/signup">Signup</NavLink></li>        
+                <li key="6"><NavLink to="/login">Login</NavLink></li>,
+                <li key="7"><NavLink to="/signup">Signup</NavLink></li>        
             ]
         }
     }
+
+    const fetchUsers = (query)=>{
+        setSearch(query)
+        fetch('/search-users',{
+          method:"post",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+            query
+          })
+        }).then(res=>res.json())
+        .then(results=>{
+          setUserDetails(results.user)
+        })
+     }
+
    return(
     <nav>
         <div className="nav-wrapper white">
@@ -37,6 +62,28 @@ const Navbar = () => {
         <ul id="nav-mobile" className="right hide-on-med-and-down">
            {renderList()}
         </ul>
+        </div>
+        <div id="modal1" className="modal" ref={searchModal} style={{color:"black"}}>
+          <div className="modal-content">
+          <input
+            type="text"
+            placeholder="search users"
+            value={search}
+            onChange={(e)=>fetchUsers(e.target.value)}
+            />
+             <ul className="collection">
+               {userDetails.map(item=>{
+                 return <NavLink key={item?item._id:"Loading."} to={item._id !== state._id ? "/profile/"+item._id:'/profile'} onClick={()=>{
+                   M.Modal.getInstance(searchModal.current).close()
+                   setSearch('')
+                 }}><li className="collection-item">{item.email}</li></NavLink> 
+               })}
+               
+              </ul>
+          </div>
+          <div className="modal-footer">
+            <button className="modal-close waves-effect waves-green btn-flat" onClick={()=>setSearch('')}>close</button>
+          </div>
         </div>
     </nav>
    ) 

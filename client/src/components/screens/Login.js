@@ -60,6 +60,9 @@ const Login = () => {
             <h5>
                 <NavLink to='/signup'>Don't have an account ?</NavLink>
             </h5>
+            <h6>
+                <NavLink to='/reset'>Forgot password ?</NavLink>
+            </h6>
            </div>
         </div>
     )
