@@ -69,7 +69,7 @@ const Signup = () => {
     return (
         <div className="mycard">
             <div className="card auth-card input-field">
-            <h2 className="headin">Instagram</h2>
+            <h2 className="headin">Postagram</h2>
             <input 
             type="text"
             placeholder="name"
