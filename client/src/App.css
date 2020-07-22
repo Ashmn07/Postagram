@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Rancho&family=Montserrat:ital,wght@1,400;1,600&display=swap');
 
 a{
   color:black !important;
@@ -60,4 +60,82 @@ a{
 
 h4 a {
   padding-left: 20px;
+  padding-bottom: 0px;
+  font-family: 'Rancho', cursive;
+}
+
+body,.btn{
+  background: #8A2387;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F18D5E, #F47ED1);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right,  #F18D5E, #F47ED1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+/*6475EE*/
+.brand-logo,.headin{
+  background: -webkit-linear-gradient(  #F18D5E, #F47ED1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} 
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 20px; 
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 12px 20px 0 rgba(0,0,0,0.2);
+  border-radius: 20px; 
+}
+
+.btn{
+  margin: 10px;
+}
+
+.comhead{
+  background: -webkit-linear-gradient(  #F18D5E, #F47ED1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Rancho';
+  font-size: 25px;
+}
+
+.login-mess{
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 400;
+}
+.login-mess:hover{
+  font-weight: 600;
+}
+.n-link{
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 600;
+}
+.n-link:hover{
+  background: -webkit-linear-gradient(  #F18D5E, #F47ED1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: azure;
+}
+
+.btn-mod:hover{
+  background: -webkit-linear-gradient(  #F18D5E, #F47ED1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn:hover{
+  box-shadow: 2px 5px 7px 3px rgba(12, 12, 12, 0.2);
+}
+
+@media only screen and (max-width: 995px){
+ .brand-logo{
+    margin-left: 50px;
+ }
 }

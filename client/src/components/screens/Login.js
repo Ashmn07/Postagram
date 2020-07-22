@@ -40,7 +40,7 @@ const Login = () => {
     return (
         <div className="mycard">
             <div className="card auth-card input-field">
-            <h2>Instagram</h2>
+            <h2 className="headin">Instagram</h2>
             <input 
             type="text"
             placeholder="email"
@@ -57,10 +57,10 @@ const Login = () => {
             onClick={()=>PostData()}>
                 Login
             </button>
-            <h5>
+            <h5 className="login-mess">
                 <NavLink to='/signup'>Don't have an account ?</NavLink>
             </h5>
-            <h6>
+            <h6 className="login-mess">
                 <NavLink to='/reset'>Forgot password ?</NavLink>
             </h6>
            </div>

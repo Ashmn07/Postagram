@@ -156,6 +156,7 @@ const Home = () => {
                                     onClick={()=>deletePost(item._id)}
                                     >delete</i>}</h4>
                                     </div>
+
                                 </div>
                             <div className="card-image">
                                 <img src={item.photo} />
@@ -167,7 +168,7 @@ const Home = () => {
                                 <i className="material-icons" onClick={()=>likePost(item._id)}>thumb_up</i>
                                 }
                                 <h6>{item.likes.length} likes</h6>
-                                <h6>{item.title}</h6>
+                                <h6 style={{fontWeight:"500"}}>{item.title}</h6>
                                 <p>{item.body}</p>
                                 {
                                     item.comments.map(record => {
@@ -177,7 +178,7 @@ const Home = () => {
                                                 <i className="material-icons" style={{float:"right"}}
                                                 onClick={()=>deleteComment(item._id,record._id)}
                                                 >delete</i>}
-                                                {record.postedBy.name} </span>{record.text}</h6>
+                                                <span className="comhead">{record.postedBy.name} :</span> </span>{record.text}</h6>
                                         )
                                     })
                                 }

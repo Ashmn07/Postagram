@@ -29,18 +29,20 @@ const Routing = () => {
     }
   },[])
   return(
-    <Switch>
-       <Route exact path="/" component={Home}/>
-       <Route exact path="/signup" component={Signup}/>
-       <Route exact path="/login" component={Login}/>
-       <Route exact path="/profile" component={Profile}/>
-       <Route exact path="/create" component={CreatePost}/>
-       <Route exact path="/profile/:userid" component={UserProfile}/>
-       <Route exact path="/myfolpost" component={ShowFollowingPost}/>
-       <Route exact path="/reset" component={Reset}/>
-       <Route exact path="/reset/:token" component={NewPassword}/>
-       <Redirect to="/"/>
-     </Switch>
+    <div className="backg">
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/signup" component={Signup}/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/profile" component={Profile}/>
+        <Route exact path="/create" component={CreatePost}/>
+        <Route exact path="/profile/:userid" component={UserProfile}/>
+        <Route exact path="/myfolpost" component={ShowFollowingPost}/>
+        <Route exact path="/reset" component={Reset}/>
+        <Route exact path="/reset/:token" component={NewPassword}/>
+        <Redirect to="/"/>
+      </Switch>
+     </div> 
   )
 }
 

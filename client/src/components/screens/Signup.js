@@ -69,7 +69,7 @@ const Signup = () => {
     return (
         <div className="mycard">
             <div className="card auth-card input-field">
-            <h2>Instagram</h2>
+            <h2 className="headin">Instagram</h2>
             <input 
             type="text"
             placeholder="name"
@@ -101,7 +101,7 @@ const Signup = () => {
             onClick={()=>FinalUpload()}>
                 Sign UP
             </button>
-            <h5>
+            <h5 className="login-mess">
                 <NavLink to='/login'>Already have an account ?</NavLink>
             </h5>
            </div>

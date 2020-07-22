@@ -62,6 +62,7 @@ const CreatePost = () =>{
            padding:"20px",
            textAlign:"center"
        }} >
+           <h2 className="headin">Create a New Post</h2>
            <input type='text' placeholder='title' value={title} onChange={(e)=>setTitle(e.target.value)}/>
            <input type="text" placeholder="body" value={body} onChange={(e)=>setBody(e.target.value)}/>
            <div className="file-field input-field">

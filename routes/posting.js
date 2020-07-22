@@ -18,7 +18,7 @@ router.get('/allposts',requiredLogin,(req,res)=>{
 
 router.get('/myfolposts',requiredLogin,(req,res)=>{
     Post.find({postedBy:{$in:req.user.following}})
-    .populate("postedBy","_id name")
+    .populate("postedBy","_id name pic")
     .populate("comments.postedBy","_id name")
     .sort("-createdAt")
     .then((post)=>{
@@ -51,7 +51,7 @@ router.post('/createpost',requiredLogin,(req,res)=>{
 
 router.get('/myposts',requiredLogin,(req,res)=>{
     Post.find({postedBy:req.user._id})
-    .populate("postedBy","_id name")
+    .populate("postedBy","_id name pic")
     .then((mypost)=>{
         res.statusCode=200;
         res.json({mypost})
@@ -69,7 +69,7 @@ router.put('/comment',requiredLogin,(req,res)=>{
     },{
         new:true
     })
-    .populate("postedBy","_id name")
+    .populate("postedBy","_id name pic")
     .populate("comments.postedBy","_id name")
     .exec((err,result) =>{
         if(err){
@@ -89,7 +89,7 @@ router.put('/like',requiredLogin,(req,res)=>{
     },{
         new:true
     })
-    .populate("postedBy","_id name")
+    .populate("postedBy","_id name pic")
     .populate("comments.postedBy","_id name")
     .exec((err,result) =>{
         if(err){
@@ -109,7 +109,7 @@ router.put('/unlike',requiredLogin,(req,res)=>{
     },{
         new:true
     })
-    .populate("postedBy","_id name")
+    .populate("postedBy","_id name pic")
     .populate("comments.postedBy","_id name")
     .exec((err,result) =>{
         if(err){
@@ -141,6 +141,8 @@ router.delete('/deletepost/:postId',requiredLogin,(req,res)=>{
 
 router.delete('/deletepost/:postId/:commentId',requiredLogin,(req,res) => {
     Post.findOne({_id:req.body.postId})
+    .populate("postedBy","_id name pic")
+    .populate("comments.postedBy","_id name")
     .then(item =>{
         if(item!=null){
             item.comments.remove(req.body.commentId)
