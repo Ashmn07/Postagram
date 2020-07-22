@@ -62,7 +62,7 @@ const Navbars = () => {
      <nav>
       <div className="nav-wrapper white">
         <img style={{margin:"5px"}} src='https://img.icons8.com/fluent/48/000000/instagram-new.png' alt='insta-icon'/>
-        <NavLink to={state?'/':'/login'} className="brand-logo left">Instagram</NavLink>
+        <NavLink to={state?'/':'/login'} className="brand-logo left">Postagram</NavLink>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           {renderList()}
          </ul>   
