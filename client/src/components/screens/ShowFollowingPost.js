@@ -143,9 +143,19 @@ const Home = () => {
                 data.map(item =>{
                     return(
                         <div className="card home-card" key={item._id}>
-                            <h5 style={{padding:"10px"}}><NavLink to={item.postedBy._id !== state._id?`/profile/${item.postedBy._id}`:"/profile"}>{item.postedBy.name}</NavLink> {item.postedBy._id == state._id && <i className="material-icons" style={{float:"right"}}
-                            onClick={()=>deletePost(item._id)}
-                            >delete</i>}</h5>
+                            <div className="row">
+                                <div >
+                                <img style={{width:"50px",height:"50px",borderRadius:"25px",float:"left"}}
+                                src={item.postedBy.pic}
+                                />   
+                                </div>
+                                <div style={{paddingLeft:"20px"}}>
+                                    <h4>
+                                    <NavLink to={`/profile/${item.postedBy._id}`}>
+                                    {item.postedBy.name}</NavLink> 
+                                    </h4>
+                                </div>
+                            </div>
                             <div className="card-image">
                                 <img src={item.photo} />
                             </div>
@@ -166,7 +176,7 @@ const Home = () => {
                                                 <i className="material-icons" style={{float:"right"}}
                                                 onClick={()=>deleteComment(item._id,record._id)}
                                                 >delete</i>}
-                                                {record.postedBy.name} </span>{record.text}</h6>
+                                           <span className="comhead">{record.postedBy.name} :</span> </span>{record.text}</h6>
                                         )
                                     })
                                 }
