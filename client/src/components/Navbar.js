@@ -69,7 +69,6 @@ const Navbars = () => {
         </ul>   
       </div>
       <div id="modal1" className="modal" ref={searchModal} style={{color:"black"}}>
-        {console.log("Helloo")}
         <div className="modal-content">
         <input
           type="text"

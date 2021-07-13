@@ -105,7 +105,7 @@ background: linear-gradient(to right,  #F18D5E, #F47ED1); /* W3C, IE 10+/ Edge, 
 }
 
 .login-mess{
-  font-family: 'Montserrat',sans-serif;
+  /* font-family: 'Montserrat',sans-serif; */
   font-weight: 400;
 }
 .login-mess:hover{
