@@ -8,6 +8,16 @@ a{
   font-family: 'Grand Hotel', cursive;
 }
 
+.loading{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(to right,  #F18D5E, #F47ED1);
+  color:white;
+  font-size:1.5rem;
+  height:80vh;
+}
+
 .auth-card{
   padding: 20px;
   text-align: center;

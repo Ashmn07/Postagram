@@ -139,7 +139,7 @@ const Home = () => {
     return (
         <div className="home">
             {
-                data.map(item =>{
+                data?.map(item =>{
                     return(
                         <div className="card home-card" key={item._id}>
                                 <div className="row">
