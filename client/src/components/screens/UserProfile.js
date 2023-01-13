@@ -20,7 +20,7 @@ const UserProfile = () => {
     },[])
 
     const followUser = ()=>{
-        fetch('/follow',{
+        fetch('/api/follow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -47,7 +47,7 @@ const UserProfile = () => {
         })
     }
     const unfollowUser = ()=>{
-        fetch('/unfollow',{
+        fetch('/api/unfollow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",

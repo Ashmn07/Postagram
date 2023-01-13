@@ -6,7 +6,7 @@ const Home = () => {
     const [data,setData] = useState([])
     const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{
-        fetch('/allposts',{
+        fetch('/api/allposts',{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -19,7 +19,7 @@ const Home = () => {
     },[])
     
     const likePost = (id) => {
-        fetch('/like',{
+        fetch('/api/like',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -46,7 +46,7 @@ const Home = () => {
     }
 
     const unlikePost = (id) => {
-        fetch('/unlike',{
+        fetch('/api/unlike',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -72,7 +72,7 @@ const Home = () => {
     }
 
     const makeComment = (text,postId) => {
-        fetch('/comment',{
+        fetch('/api/comment',{
             method:"put",
             headers:{
                    "Content-Type":"application/json",
@@ -99,7 +99,7 @@ const Home = () => {
     }
 
     const deletePost = (postId) => {
-        fetch(`/deletepost/${postId}`,{
+        fetch(`/api/deletepost/${postId}`,{
             method:"delete",
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
@@ -116,7 +116,7 @@ const Home = () => {
     }
 
     const deleteComment = (postId,commentId) => {
-        fetch(`/deletepost/${postId}/${commentId}`,{
+        fetch(`/api/deletepost/${postId}/${commentId}`,{
             method:"delete",
             headers:{
                 "Content-Type":"application/json",

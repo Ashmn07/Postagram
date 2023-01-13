@@ -37,7 +37,7 @@ const Signup = () => {
             M.toast({html:"Invalid Email",classes:"#c62828 red darken-3"})
             return;
         }
-        fetch("/signup",{
+        fetch("/api/signup",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
