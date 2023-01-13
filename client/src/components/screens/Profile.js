@@ -7,7 +7,7 @@ const Profile = () => {
     const [image,setImage] = useState("")
   //  const [url,setUrl] = useState(undefined)
     useEffect(()=>{
-        fetch('/myposts',{
+        fetch('/api/myposts',{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -34,7 +34,7 @@ const Profile = () => {
             // localStorage.setItem("user",JSON.stringify({...state,pic:data.url}))
             // dispatch({type:"UPDATEPIC",payload:data.url})
             //window.location.reload()
-            fetch('/updatepic',{
+            fetch('/api/updatepic',{
                 method:"put",
                 headers:{
                     "Content-Type":"application/json",

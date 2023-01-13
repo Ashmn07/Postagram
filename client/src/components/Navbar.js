@@ -45,7 +45,7 @@ const Navbars = () => {
 
     const fetchUsers = (query)=>{
         setSearch(query)
-        fetch('/search-users',{
+        fetch('/api/search-users',{
           method:"post",
           headers:{
             "Content-Type":"application/json"
